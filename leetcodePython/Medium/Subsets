@@ -1,0 +1,26 @@
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        v = []
+        index = 0
+        
+        self.helper(res, v, nums, index)
+        return res
+
+        
+    def helper(self, res, v, nums, index):
+        
+        res.append(list(v))
+        
+        for i in range (index, len(nums)):
+            
+            v.append(nums[i])
+            self.helper(res, v, nums, i+1)
+            
+            v.pop()
+        
+        return

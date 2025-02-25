@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> constructRectangle(int area) {
+        
+        int x =0;
+        int y = 0;
+
+        for(int i = 1; i <= sqrt(area); i++){
+            
+            if(area % i == 0 && (area/i >= i)){
+
+                x = area/i;
+                y = i;
+
+            }
+
+        }
+        vector<int> v;
+        if(area == 1){
+            v.push_back(1);
+            v.push_back(area); 
+        }else{
+            v.push_back(x);
+            v.push_back(y);
+        }
+        return v;
+
+
+    }
+};
