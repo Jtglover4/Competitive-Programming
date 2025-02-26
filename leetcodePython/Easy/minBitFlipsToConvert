@@ -1,0 +1,21 @@
+class Solution(object):
+    def minBitFlips(self, start, goal):
+        """
+        :type start: int
+        :type goal: int
+        :rtype: int
+        """
+
+        bigger = max(start, goal)
+        ans = 0
+
+        while(bigger > 0):
+            if(start % 2 != goal % 2):
+                ans += 1
+            start /= 2
+            goal /= 2
+            bigger /= 2
+
+        return ans
+
+        
