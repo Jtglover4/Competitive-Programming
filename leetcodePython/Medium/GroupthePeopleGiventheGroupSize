@@ -1,0 +1,24 @@
+class Solution(object):
+    def groupThePeople(self, groupSizes):
+        """
+        :type groupSizes: List[int]
+        :rtype: List[List[int]]
+        """
+
+        biggest = max(groupSizes)
+        temp = []
+        ans = []
+
+        curr = 1
+
+        while(curr <= biggest):
+            for i in range(len(groupSizes)):
+                if(groupSizes[i] == curr):
+                    temp.append(i)
+                if(len(temp) == curr):
+                    ans.append(temp)
+                    temp = []
+            curr += 1
+            
+        return ans
+        
