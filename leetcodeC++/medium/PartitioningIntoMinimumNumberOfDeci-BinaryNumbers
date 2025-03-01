@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int minPartitions(string n) {
+        
+        int max = 0;
+
+        for(auto i : n){
+
+            if(i - 48 > max){
+                max = i-48;
+            }
+
+        }
+        return max;
+
+    }
+};
