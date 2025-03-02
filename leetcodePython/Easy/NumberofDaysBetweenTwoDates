@@ -1,0 +1,38 @@
+class Solution(object):
+    def daysBetweenDates(self, date1, date2):
+        """
+        :type date1: str
+        :type date2: str
+        :rtype: int
+        """
+
+        nums1 = date1.split("-")
+        nums2 = date2.split("-")
+
+        return abs(self.date(nums1) - self.date(nums2))
+        
+        
+
+    def date(self, date):
+        months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        ans = 0
+        numleap = 0
+        for i in range(1900, int(date[0])):
+            if(i % 4 == 0 and (i % 100 != 0 or i % 400 == 0)):
+                numleap += 1
+                ans += 366
+            else:
+                ans += 365
+        
+        if(int(date[0]) % 4 == 0 and (int(date[0]) % 100 != 0 or int(date[0]) % 400 == 0) and int(date[1]) > 2):
+            ans += 1
+        
+        for i in range(0, int(date[1])-1):
+            ans += months[i]
+        print(numleap)
+        ans += int(date[2])
+
+        return ans
+
+
+
