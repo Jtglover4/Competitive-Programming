@@ -1,0 +1,26 @@
+class Solution(object):
+    def findJudge(self, n, trust):
+        """
+        :type n: int
+        :type trust: List[List[int]]
+        :rtype: int
+        """
+
+        my_dict = {}
+
+        if(n == 1):
+            return 1
+
+        for x in trust:
+            if x[1] in my_dict and my_dict[x[1]] != 0:
+                my_dict[x[1]] += 1
+            elif x[1] not in my_dict:
+                my_dict[x[1]] = 1
+            
+            my_dict[x[0]] = 0
+        
+        for key, value in my_dict.items():
+            if value == n-1:
+                return key
+        return -1
+    
