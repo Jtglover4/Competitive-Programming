@@ -1,0 +1,33 @@
+class Solution(object):
+    def judgeCircle(self, moves):
+        """
+        :type moves: str
+        :rtype: bool
+        """
+
+        #method 1
+        pos = 0
+
+        for char in moves:
+            if(char == 'U'):
+                pos += 7
+            elif(char == 'D'):
+                pos -= 7
+            elif(char == 'L'):
+                pos += 10
+            elif(char == 'R'):
+                pos -= 10
+
+        if pos == 0:
+            return True
+        return False
+
+        #method 2
+        char_counts = Counter(moves)
+
+        if(char_counts['U'] == char_counts['D'] and char_counts['L'] == char_counts['R']):
+            return True
+
+        return False
+
+        
