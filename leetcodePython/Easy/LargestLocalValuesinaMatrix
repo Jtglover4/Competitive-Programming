@@ -1,0 +1,21 @@
+class Solution(object):
+    def largestLocal(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: List[List[int]]
+        """
+
+        ans = []
+        temp = []
+        
+
+        for i in range(1, len(grid)-1):
+            for j in range(1,len(grid)-1):
+                temp.append(max(grid[i][j], grid[i+1][j], grid[i][j+1], grid[i-1][j], grid[i][j-1], grid[i+1][j+1], grid[i-1][j-1], grid[i+1][j-1], grid[i-1][j+1]))
+            ans.append(temp)
+            temp = []
+
+        return ans
+
+
+        
