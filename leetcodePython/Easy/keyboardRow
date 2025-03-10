@@ -1,0 +1,27 @@
+class Solution(object):
+    def findWords(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        first = True
+        second = True
+        third = True
+        ans = []
+
+        for word in words:
+            #word = word.lower()
+            for i in range (len(word)):
+                if word[i].lower() not in "qwertyuiop" and first == True:
+                    first = False
+                if word[i].lower() not in "asdfghjkl" and second == True:
+                    second = False
+                if word[i].lower() not in "zxcvbnm" and third == True:
+                    third = False
+                
+            if(first != False or second != False or third != False):
+                    ans.append(word)
+            first, second, third = True, True, True
+
+        return ans
+                
