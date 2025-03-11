@@ -1,0 +1,27 @@
+class Solution(object):
+    def binaryGap(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        state = 0
+        a = []
+        x = 0
+
+        while n > 0:
+            if(n % 2 == 1 and state == 0):
+                state = 1
+            elif(n % 2 == 1 and state == 1):
+                x += 1
+                a.append(x)
+                x = 0
+            elif(n % 2 == 0 and state == 1):
+                x += 1
+
+            n /= 2
+
+        if len(a) == 0:
+            return 0
+
+        return max(a)
+        
