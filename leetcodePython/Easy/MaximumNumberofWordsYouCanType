@@ -1,0 +1,18 @@
+class Solution(object):
+    def canBeTypedWords(self, text, brokenLetters):
+        """
+        :type text: str
+        :type brokenLetters: str
+        :rtype: int
+        """
+        words = text.split()
+        good = [1] * len(words)
+
+        for letter in brokenLetters:
+            for i in range(len(words)):
+                if letter in words[i]:
+                    good[i] = 0
+
+        return sum(good)
+
+        
