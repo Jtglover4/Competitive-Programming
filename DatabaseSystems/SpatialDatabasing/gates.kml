@@ -1,0 +1,32 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <Style id="z1">
+            <IconStyle>
+                <Icon>
+                    <href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Marshall Gate</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.2833674329244,34.01853851277321</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>McCarthy Gate</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28136985201225,34.02060136202166</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Hoover Gate</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.2835816149971,34.02285781172763</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>

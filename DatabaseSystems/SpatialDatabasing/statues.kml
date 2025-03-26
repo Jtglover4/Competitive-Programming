@@ -1,0 +1,32 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <Style id="z1">
+            <IconStyle>
+                <Icon>
+                    <href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Neil Armstrong</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28846873726536,34.020267636546976</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Tire Biter</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28623806137432,34.018921796264145</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Douglas Fairbanks</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28640301722874,34.02337325740058</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>

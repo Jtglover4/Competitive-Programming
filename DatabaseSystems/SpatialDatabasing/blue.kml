@@ -1,0 +1,32 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <Style id="z1">
+            <IconStyle>
+                <Icon>
+                    <href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Doheny Blue Light</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.2833765399337,34.01969740240152</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>RTC Blue Light</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28575258154264,34.01976463853764</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Viterbi Blue Light</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.2873548661529,34.019568921098504</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>

@@ -1,0 +1,18 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <Style id="z1">
+            <IconStyle>
+                <Icon>
+                    <href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Home</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.292806,34.029389</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>

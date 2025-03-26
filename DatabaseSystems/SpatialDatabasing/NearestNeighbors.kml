@@ -1,0 +1,51 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <name>Nearest Neighbors</name>
+        <Style id="lineStyle">
+            <LineStyle>
+                <color>7f0000ff</color>  
+                <width>4</width>
+            </LineStyle>
+        </Style>
+
+        <Placemark>
+            <name>Home to Dulce</name>
+            <styleUrl>#lineStyle</styleUrl>
+            <LineString>
+                <coordinates>
+                    -118.292806,34.029389 -118.28515158510426,34.02540882207765
+                </coordinates>
+            </LineString>
+        </Placemark>
+
+        <Placemark>
+            <name>Home to Douglas Fairbanks</name>
+            <styleUrl>#lineStyle</styleUrl>
+            <LineString>
+                <coordinates>
+                    -118.292806,34.029389 -118.28640301722874,34.02337325740058
+                </coordinates>
+            </LineString>
+        </Placemark>
+
+        <Placemark>
+            <name>Home to Neil Armstrong</name>
+            <styleUrl>#lineStyle</styleUrl>
+            <LineString>
+                <coordinates>
+                    -118.292806,34.029389 -118.28846873726536,34.020267636546976
+                </coordinates>
+            </LineString>
+        </Placemark>
+
+        <Placemark>
+            <name>Home to Viterbi Blue Light</name>
+            <styleUrl>#lineStyle</styleUrl>
+            <LineString>
+                <coordinates>
+                   -118.292806,34.029389 -118.2873548661529,34.019568921098504
+                </coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>

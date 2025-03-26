@@ -1,0 +1,32 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+        <Style id="z1">
+            <IconStyle>
+                <Icon>
+                    <href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+                </Icon>
+            </IconStyle>
+        </Style>
+        <Placemark>
+            <name>Starbucks</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28265848580587,34.02136503721962</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Dulce</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28515158510426,34.02540882207765</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>Equator Coffees</name>
+            <styleUrl>#z1</styleUrl>
+            <Point>
+                <coordinates>-118.28246703832613,34.01902010986181</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>
