@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int numUniqueEmails(vector<string>& emails) {
+        
+        map<string, int> m;
+
+        bool add = 1;
+        bool domain = 0;
+        string a = "";
+
+        for(int i = 0; i < emails.size(); i++){
+            for(int j = 0; j < emails[i].size(); j++){
+
+                if(emails[i][j] == '+'){
+                    add = 0;
+                }else if(emails[i][j] == '@'){
+                    add = 1;
+                    domain = 1;
+                }
+
+                if(add && (domain == 1 || emails[i][j] != '.')){
+                    a += emails[i][j];
+                }
+            }
+            m[a]++;
+            domain = 0;
+            a = "";
+        }
+        return m.size();
+
+    }
+};
