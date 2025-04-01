@@ -1,0 +1,56 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertGreatestCommonDivisors(ListNode* head) {
+        
+        ListNode* start = head;
+
+        while(start -> next != NULL){
+
+            ListNode* temp = start -> next;
+
+            int i = start -> val;
+            int j = (start -> next) -> val;
+
+            int gcd = GCDfunction(i, j);
+
+            ListNode* ins = new ListNode;
+
+            ins -> next = (start -> next);
+            start -> next = ins;
+            ins -> val = gcd;
+
+            start = temp;
+
+        }
+        return head;
+
+    }
+
+    int GCDfunction(int i, int j){
+
+        int mini = min(i , j);
+
+        while(mini > 0){
+
+            if((i % mini == 0) && (j % mini == 0)){
+
+                return mini;
+
+            }
+            mini--;
+        }
+        return mini;
+
+    }
+
+};
