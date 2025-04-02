@@ -1,0 +1,31 @@
+class Solution {
+public:
+
+    int i = 0;
+    map<int, string> mappy;
+
+    // Encodes a URL to a shortened URL.
+    string encode(string longUrl) {
+        
+        mappy[i] = longUrl;
+        string s = "http://tinyurl.com/";
+
+        stringstream ss;
+        ss << i;
+        string str = ss.str();
+
+        return (s + str);
+    }
+
+    // Decodes a shortened URL to its original URL.
+    string decode(string shortUrl) {
+
+        string url = shortUrl.erase(0,19);
+        int i = stoi(url);
+        return(mappy.find(i) -> second);
+    }
+};
+
+// Your Solution object will be instantiated and called as such:
+// Solution solution;
+// solution.decode(solution.encode(url));
