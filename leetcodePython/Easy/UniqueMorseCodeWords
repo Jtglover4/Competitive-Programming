@@ -1,0 +1,20 @@
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+
+        setty = set()
+
+        morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+
+        for word in words:
+            adde = ""
+            for letter in word:
+                adde += morse[ord(letter)-97]
+            
+            setty.add(adde)
+
+        return(len(setty))
+        
