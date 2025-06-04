@@ -1,0 +1,82 @@
+#bad runtime
+class Solution:
+
+    flag = False
+
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        
+        self.flag = False
+        curr = 0
+        visited = [[0 for _ in range(len(board[0]))] for _ in range(len(board))]
+
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if board[i][j] == word[curr]:
+                    print("Recursing on:", i, j)
+                    if(len(word) == 1):
+                        return True
+                    new_visited = [row[:] for row in visited]
+                    self.recurse(board, word, i, j, curr+1, self.flag, new_visited)
+
+                    visited = [[0 for _ in range(len(board[0]))] for _ in range(len(board))]
+        
+                    
+        
+        return self.flag
+
+    
+    def recurse(self, board: List[List[str]], word: str, i: int, j: int, curr: int, flag: bool, visited: List[List[int]]):
+
+        print(i, j)
+        visited[i][j] = 1
+
+        if(curr >= len(word)):
+            return
+
+        if(i < (len(board)-1) and visited[i+1][j] != 1 and board[i+1][j] == word[curr]):
+            print("a")
+            #print(i, " ", j)
+            if(curr == len(word)-1):
+                self.flag = True
+            #visited[i+1][j] = 1
+            new_visited = [row[:] for row in visited]
+            new_visited[i+1][j] = 1
+            self.recurse(board, word, i+1, j, curr+1, self.flag, new_visited)
+
+        if(j < (len(board[0])-1) and visited[i][j+1] != 1 and board[i][j+1] == word[curr]):
+            print("b")
+            #print(i, " ", j)
+            if(curr == len(word)-1):
+                self.flag = True
+            #visited[i][j+1] = 1
+            new_visited = [row[:] for row in visited]
+            new_visited[i][j+1] = 1
+            self.recurse(board, word, i, j+1, curr+1, self.flag, new_visited)
+
+        if(i > 0 and visited[i-1][j] != 1 and board[i-1][j] == word[curr]):
+            print("c")
+            #print(i, " ", j)
+            if(curr == len(word)-1):
+                self.flag = True
+            #visited[i-1][j] = 1
+            new_visited = [row[:] for row in visited]
+            new_visited[i-1][j] = 1
+            self.recurse(board, word, i-1, j, curr+1, self.flag, new_visited)
+
+        if(j > 0 and visited[i][j-1] != 1 and board[i][j-1] == word[curr]):
+            print("d")
+            #print(i, " ", j)
+            if(curr == len(word)-1):
+                self.flag = True
+            #visited[i][j-1] = 1
+            new_visited = [row[:] for row in visited]
+            new_visited[i][j-1] = 1
+            self.recurse(board, word, i, j-1, curr+1, self.flag, new_visited)
+
+
+
+
+            
+        
+
+        
