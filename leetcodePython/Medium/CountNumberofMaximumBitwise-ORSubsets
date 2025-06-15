@@ -1,0 +1,23 @@
+class Solution:
+    def countMaxOrSubsets(self, nums: List[int]) -> int:
+
+        res = [list(combinations(nums, r)) for r in range(1, len(nums) + 1)]  
+        res = [list(sublist) for g in res for sublist in g]
+        maxx = 0
+        ans = 0
+
+        for x in res:
+            temp = x[0]
+            for i in range(1, len(x)):
+                temp |= x[i]
+            if(temp > maxx):
+                maxx = temp
+                ans = 1
+            elif(temp == maxx):
+                ans += 1
+
+
+        return ans
+        
+
+        
