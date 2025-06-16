@@ -1,0 +1,14 @@
+class Solution:
+    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+
+        ans = []
+        curr = reduce(xor, nums)
+        k = (1 << maximumBit)-1 
+
+        while len(nums) > 0:
+            ans.append(k-curr)
+            curr ^= nums.pop()
+        
+        return ans
+
+        
