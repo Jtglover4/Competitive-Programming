@@ -1,0 +1,35 @@
+class Solution:
+    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+
+        total = 0
+        pendingM = 0
+        pendingP = 0
+        pendingG = 0
+
+        for i in range(len(garbage)):
+
+            if('M' in garbage[i]):
+                total += (pendingM +garbage[i].count('M'))
+                pendingM = 0
+            if(i < len(travel)):            
+                pendingM += travel[i]
+
+            if('P' in garbage[i]):
+                total += (pendingP +garbage[i].count('P'))
+                pendingP = 0
+            if(i < len(travel)):           
+                pendingP += travel[i]
+            
+            if('G' in garbage[i]):
+                total += (pendingG +garbage[i].count('G'))
+                pendingG = 0
+
+            if(i < len(travel)):
+                pendingG += travel[i]
+
+
+        return total
+
+
+
+        
