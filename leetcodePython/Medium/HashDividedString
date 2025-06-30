@@ -1,0 +1,19 @@
+class Solution:
+    def stringHash(self, s: str, k: int) -> str:
+
+        n = len(s)
+        ans = ""
+
+        for i in range(n//k):
+            curr = s[i*k:((i+1)*k)]
+            temp = 0
+            for j in range(k):
+                temp += (ord(curr[j])-97)
+            temp %= 26
+            ans += chr(temp + 97)
+        
+        return ans
+
+        
+
+        
