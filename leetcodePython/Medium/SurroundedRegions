@@ -1,0 +1,68 @@
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+
+        islands = []
+        self.temp = []
+        self.visited = [[0]* len(board[0]) for _ in range(len(board))]
+        q = deque()
+        
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+
+                if(board[i][j] == 'O' and self.visited[i][j] == 0):
+                    self.visited[i][j] = 1
+                    q.append((i, j))
+                    self.temp.append((i, j))
+                    self.FindAll(board, q)
+                    islands.append(self.temp)
+                    self.temp = []
+
+        print(islands)
+        good = [1] * len(islands)
+        
+        for i in range(len(islands)):
+            for cord in islands[i]:
+                if(cord[0] == 0 or cord[1] == 0 or cord[0] == len(board)-1 or cord[1] == len(board[0])-1):
+                    
+                   good[i] = 0
+        
+        for i in range(len(islands)):
+            if(good[i]):
+                for cord1 in islands[i]:
+                    row = cord1[0]
+                    col = cord1[1]
+                    board[row][col] = 'X'
+
+        
+                
+    
+    def FindAll(self, board: List[List[str]], q: deque):
+        
+        while(len(q) > 0):
+
+            curr = q.pop()
+
+            row, col = curr
+
+            if(row > 0 and self.visited[row-1][col] == 0 and board[row-1][col] == 'O'):
+                self.visited[row-1][col] = 1
+                self.temp.append((row-1, col))
+                q.append((row-1, col))
+            if(col > 0 and self.visited[row][col-1] == 0 and board[row][col-1] == 'O'):
+                self.visited[row][col-1] = 1
+                self.temp.append((row, col-1))
+                q.append((row, col-1))
+            if(row < len(board)-1 and self.visited[row+1][col] == 0 and board[row+1][col] == 'O'):
+                self.visited[row+1][col] = 1
+                self.temp.append((row+1, col))
+                q.append((row+1, col))
+            if(col < len(board[0])-1 and self.visited[row][col+1] == 0 and board[row][col+1] == 'O'):
+                self.visited[row][col+1] = 1
+                self.temp.append((row, col+1))
+                q.append((row, col+1))
+
+
+
+
+
+        
