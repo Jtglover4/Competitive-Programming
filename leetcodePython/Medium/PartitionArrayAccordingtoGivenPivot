@@ -1,0 +1,31 @@
+class Solution:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+
+        less = []
+        more = []
+        same = 0
+
+        for num in nums:
+            if num < pivot:
+                less.append(num)
+            elif(num > pivot):
+                more.append(num)
+            else:
+                same += 1
+        
+        print(less)
+        print(more)
+        print(same)
+
+        for i in range(len(nums)):
+
+            if(i < len(less)):
+                nums[i] = less[i]
+            elif(i < len(less) + same):
+                nums[i] = pivot
+            elif(i < len(less) + same + len(more)):
+                nums[i] = more[i - same - len(less)]
+
+        return nums
+        
+        
