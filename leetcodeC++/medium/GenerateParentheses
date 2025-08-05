@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        
+        vector<string> ans;
+
+        helper("", n, 0, ans);
+
+        return ans;
+
+    }
+    void helper(string curr, int n, int numleft, vector<string>&ans){
+
+        if(curr.length() > n*2){
+            return;
+        }
+
+        if(curr.length() == n*2 and numleft == 0){
+            ans.push_back(curr);
+            return;
+        }
+        helper(curr + '(', n, numleft+1, ans);
+        if(numleft > 0){
+            helper(curr + ')', n, numleft -1, ans);
+        }
+
+
+
+    }
+};
