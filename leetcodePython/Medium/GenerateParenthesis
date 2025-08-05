@@ -1,0 +1,34 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+
+        self.ans = []
+        
+        self.helper("", n, 0)
+
+        return self.ans
+        
+    
+    def helper(self, curr, n: int, numleft: int):
+
+        if(len(curr) > n*2):
+            return
+
+        if(len(curr) == n*2 and numleft == 0):
+            print("1")
+            self.ans.append(curr)
+            return
+        self.helper(curr + '(', n, numleft+1)
+        if(numleft > 0):
+            print("2")
+            self.helper(curr + ')', n, numleft-1)
+        
+        
+
+
+
+        
+
+        
+
+
+        
