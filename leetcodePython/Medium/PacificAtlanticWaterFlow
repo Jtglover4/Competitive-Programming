@@ -1,0 +1,60 @@
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+
+        touchingPac = [([0] * len(heights[0])) for _ in range (len(heights))]
+        touchingAtl = [([0] * len(heights[0])) for _ in range (len(heights))]
+
+        pacQ = deque()
+        atlQ = deque()
+
+        for i in range(len(heights)):
+            for j in range(len(heights[0])):
+
+                if(i == 0 or j == 0):
+                    touchingPac[i][j] = 1
+                    pacQ.append((i,j))
+                if(i == len(heights)-1 or j == len(heights[0])-1):
+                    touchingAtl[i][j] = 1
+                    atlQ.append((i,j))
+        
+        def recurse(heights: List[List[int]], touching: List[List[int]], q: deque):
+
+            while len(q) > 0:
+
+                curr = q.pop()
+                row, col = curr
+
+                if(row > 0 and heights[row-1][col] >= heights[row][col] and touching[row-1][col] == 0):
+
+                    touching[row-1][col] = 1
+                    q.append((row-1, col))
+                if(col > 0 and heights[row][col-1] >= heights[row][col] and touching[row][col-1] == 0):
+
+                    touching[row][col-1] = 1
+                    q.append((row, col-1))
+                if(row < len(heights)-1 and heights[row+1][col] >= heights[row][col] and touching[row+1][col] == 0):
+
+                    touching[row+1][col] = 1
+                    q.append((row+1, col))
+                if(col < len(heights[0])-1 and heights[row][col+1] >= heights[row][col] and touching[row][col+1] == 0):
+
+                    touching[row][col+1] = 1
+                    q.append((row, col+1))
+        
+        recurse(heights, touchingAtl, atlQ)
+        recurse(heights, touchingPac, pacQ)
+
+        ans = []
+
+        #print(touchingAtl[0][len(heights[0])-1], touchingPac[0][len(heights[0])-1])
+
+        for i in range(len(heights)):
+            for j in range(len(heights[0])):
+
+                if(touchingAtl[i][j] and touchingPac[i][j]):
+                    ans.append((i, j))
+
+        return ans
+
+
+        
